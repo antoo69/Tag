@@ -33,7 +33,7 @@ from tagall_bot.sql.roles import (
 from tagall_bot.texts import BAD_TEXT, HELP_TEXT, START_TEXT
 
 
-@command_handler("start", "!")
+@command_handler("start", "!", "/", "./)
 def start(update: Update, _: CallbackContext) -> None:
     """The start command callback function"""
     if not isinstance(update.effective_message, Message):
@@ -44,7 +44,7 @@ def start(update: Update, _: CallbackContext) -> None:
     )
 
 
-@command_handler("help", "!")
+@command_handler("help", "!", "/", "./)
 def help_callback(update: Update, _: CallbackContext) -> None:
     """The help command callback function"""
     if not isinstance(update.effective_message, Message):
@@ -126,7 +126,7 @@ def schedule_job(
 
 @command_handler(
     commands=["tag", "everyone"],
-    prefix=["!", "@"],
+    prefix=["!", "@", "/", "."],
     filters=ReplyToMessageFilter(Filters.chat_type.groups),
     run_async=True,
     roles=TAG_USERS,
@@ -151,7 +151,7 @@ def tag_all(update: Update, context: CallbackContext) -> None:
 
 @command_handler(
     commands=["tag", "everyone"],
-    prefix=["!", "@"],
+    prefix=["!", "@", "/", "."],
     run_async=True,
 )
 def bad_tag(update: Update, _: CallbackContext) -> None:
@@ -179,7 +179,7 @@ def bad_tag(update: Update, _: CallbackContext) -> None:
 
 @command_handler(
     commands="grant",
-    prefix="!",
+    prefix="!", "/", ".",
     filters=ReplyToMessageFilter(Filters.chat_type.groups),
     run_async=True,
     roles=SUDO_USERS,
@@ -211,7 +211,7 @@ def add_tag_user(update: Update, _: CallbackContext):
 
 @command_handler(
     commands="grant_su",
-    prefix="!",
+    prefix="!", "/", ".",
     filters=ReplyToMessageFilter(Filters.chat_type.groups),
     run_async=True,
     roles=ADMINS,
@@ -238,7 +238,7 @@ def add_sudo_user(update: Update, _: CallbackContext):
 
 @command_handler(
     commands=["grant", "grant_su"],
-    prefix="!",
+    prefix="!", "/", ".",
     run_async=True,
 )
 def bad_add(update: Update, _: CallbackContext) -> None:
@@ -265,7 +265,7 @@ def bad_add(update: Update, _: CallbackContext) -> None:
 
 @command_handler(
     commands="revoke",
-    prefix="!",
+    prefix="!", "/", ".",
     filters=ReplyToMessageFilter(Filters.chat_type.groups),
     run_async=True,
     roles=SUDO_USERS,
@@ -295,7 +295,7 @@ def remove_tag_user(update: Update, _: CallbackContext):
 
 @command_handler(
     commands="revoke_su",
-    prefix="!",
+    prefix="!", "/", ".",
     filters=ReplyToMessageFilter(Filters.chat_type.groups),
     run_async=True,
     roles=ADMINS,
@@ -322,7 +322,7 @@ def remove_sudo_user(update: Update, _: CallbackContext):
 
 @command_handler(
     commands=["revoke_su", "revoke"],
-    prefix="!",
+    prefix="!", "/", ".",
     run_async=True,
 )
 def bad_remove(update: Update, _: CallbackContext) -> None:
