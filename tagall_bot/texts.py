@@ -1,6 +1,6 @@
 """The module for constant text strings used throughout the project."""
 START_TEXT = """
-Hi! I'm **Tagall Bot**.
+ʜᴇʟʟᴏ, ɪ ᴀᴍ ꜰᴇʀᴅɪ ᴍᴇɴᴛɪᴏɴ ʙᴏᴛ.
 
 I'm a bot that tags all the users in a group.
 You can use me to tag users in a group."""
@@ -11,6 +11,7 @@ Reply to any message with one of the following:
 `!everyone`
 `@tag`
 `!tag`
+`/utag`
 and, shall tag everyone to that message."""
 
 BAD_TEXT = (
