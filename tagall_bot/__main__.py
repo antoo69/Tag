@@ -125,7 +125,7 @@ def schedule_job(
 
 
 @command_handler(
-    commands=["tag", "everyone"],
+    commands=["tag", "everyone", "utag"],
     prefix=["!", "@", "/", "."],
     filters=ReplyToMessageFilter(Filters.chat_type.groups),
     run_async=True,
@@ -150,7 +150,7 @@ def tag_all(update: Update, context: CallbackContext) -> None:
 
 
 @command_handler(
-    commands=["tag", "everyone"],
+    commands=["tag", "everyone", "utag"],
     prefix=["!", "@", "/", "."],
     run_async=True,
 )
